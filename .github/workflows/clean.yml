@@ -36,3 +36,7 @@ jobs:
         EOF
     - name: Trigger action
       run: echo Triggered by closed or labeled PR!
+    - name: Print reason
+      run: |
+        echo event.action = {{ github.event.action }}
+        echo PR.labels = {{ github.event.pull_request.labels }}
