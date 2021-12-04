@@ -30,6 +30,7 @@ jobs:
           echo event.action = ${{ github.event.action }}
           echo PR.labels = ${{ join(github.event.pull_request.labels.*.name, ', ') }}
           echo 'JSON(event.action): ${{ toJSON(github.event.action) }}'
+          echo 'JSON(PR.label-names): ${{ toJSON(github.event.pull_request.labels.*.name) }}'
           echo 'JSON(PR.labels): ${{ toJSON(github.event.pull_request.labels) }}'
 
   triggered:
