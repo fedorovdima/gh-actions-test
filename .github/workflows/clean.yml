@@ -25,6 +25,13 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!
 
+      - name: Print reason
+        run: |
+          echo event.action = ${{ github.event.action }}
+          echo PR.labels = ${{ join(github.event.pull_request.labels.*.name, ', ') }}
+          echo 'JSON(event.action): ${{ toJSON(github.event.action) }}'
+          echo 'JSON(PR.labels): ${{ toJSON(github.event.pull_request.labels) }}'
+
   triggered:
     if: github.event.action == 'closed' || contains(github.event.pull_request.labels.*.name, 'Stale')
     runs-on: ubuntu-latest
@@ -36,9 +43,3 @@ jobs:
         EOF
     - name: Trigger action
       run: echo Triggered by closed or labeled PR!
-    - name: Print reason
-      run: |
-        echo event.action = ${{ github.event.action }}
-        echo PR.labels = ${{ join(github.event.pull_request.labels.*.name, ', ') }}
-        echo 'JSON(event.action): ${{ toJSON(github.event.action) }}'
-        echo 'JSON(PR.labels): ${{ toJSON(github.event.pull_request.labels) }}'
