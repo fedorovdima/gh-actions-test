@@ -1,7 +1,8 @@
 name: 'Mark stale PRs'
 on:
   schedule:
-    - cron: '45 * * * *'
+    - cron: '40 * * * *'
+  workflow_dispatch:
 
 jobs:
   stale:
