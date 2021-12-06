@@ -1,7 +1,7 @@
 name: 'Mark stale PRs'
 on:
   schedule:
-    - cron: '36 1-23/2 * * *'
+    - cron: '35 1-23/2 * * *'
 
 jobs:
   stale:
