@@ -8,7 +8,7 @@ jobs:
   stale:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/stale@master
+      - uses: actions/stale@main
         with:
           repo-token: ${{ secrets.staler_PAT }}
           days-before-pr-stale: 1
