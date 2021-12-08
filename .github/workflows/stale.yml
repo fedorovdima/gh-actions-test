@@ -17,3 +17,4 @@ jobs:
           remove-stale-when-updated: true  # this is default
           days-before-issue-stale: -1
           days-before-close: -1
+          ignore-updates: true
